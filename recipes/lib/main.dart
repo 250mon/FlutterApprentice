@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'recipe.dart';
+import 'home.dart';
 
 void main() {
   runApp(const RecipeApp());
@@ -20,7 +21,8 @@ class RecipeApp extends StatelessWidget {
         ),
         // useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Recipe Calculator'),
+      // home: const MyHomePage(title: 'Recipe Calculator'),
+      home: const Home()
     );
   }
 }
@@ -36,23 +38,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values.
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
