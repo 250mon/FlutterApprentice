@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'card1.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -11,7 +12,7 @@ class HomeState extends State<Home> {
   int _selectedIndex = 0;
 
   static List<Widget> pages = <Widget>[
-    Container(color: Colors.red),
+    const Card1(),
     Container(color: Colors.green),
     Container(color: Colors.blue),
   ];
@@ -30,15 +31,11 @@ class HomeState extends State<Home> {
         ),
       ),
       // TODO: Show selected tab
-      body: Center(
-        child: Text(
-          'Let\'s get cooking',
-          style: Theme.of(context).textTheme.headlineLarge
-        ),
-      ),
+      body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,
-        // TODO: Set selected tab bar
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(Icons.card_giftcard),
