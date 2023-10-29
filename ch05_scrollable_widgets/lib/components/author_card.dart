@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'fooderlich_theme.dart';
+
+import '../fooderlich_theme.dart';
 import 'circle_image.dart';
 
 class AuthorCard extends StatefulWidget {
@@ -15,15 +16,14 @@ class AuthorCard extends StatefulWidget {
   });
 
   @override
-  State<AuthorCard> createState() => _AuthorCardState();
+  AuthorCardState createState() => AuthorCardState();
 }
 
-class _AuthorCardState extends State<AuthorCard> {
+class AuthorCardState extends State<AuthorCard> {
   bool _isFavorited = false;
 
   @override
   Widget build(BuildContext context) {
-    // TODO: Replace return Container(...);
     return Container(
       padding: const EdgeInsets.all(16),
       child: Row(
@@ -35,34 +35,31 @@ class _AuthorCardState extends State<AuthorCard> {
                 imageProvider: widget.imageProvider,
                 imageRadius: 28,
               ),
-              const SizedBox(width: 8,),
+              const SizedBox(width: 8),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     widget.authorName,
-                    style: FooderlichTheme.lightTextTheme.displayMedium,
+                    style: FooderlichTheme.lightTextTheme.headline2,
                   ),
                   Text(
                     widget.title,
-                    style: FooderlichTheme.lightTextTheme.displaySmall,
-                  ),
-
+                    style: FooderlichTheme.lightTextTheme.headline3,
+                  )
                 ],
               ),
             ],
           ),
           IconButton(
+            icon: Icon(_isFavorited ? Icons.favorite : Icons.favorite_border),
+            iconSize: 30,
+            color: Colors.red[400],
             onPressed: () {
-              // const snackBar = SnackBar(content: Text('Favorite Pressed'));
-              // ScaffoldMessenger.of(context).showSnackBar(snackBar);
               setState(() {
                 _isFavorited = !_isFavorited;
               });
             },
-            icon: Icon(_isFavorited ? Icons.favorite : Icons.favorite_border),
-            iconSize: 30ㄹ,
-            color: Colors.red[400],
           ),
         ],
       ),
