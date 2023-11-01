@@ -25,6 +25,8 @@ class FriendPostListView extends StatelessWidget {
           ),
           const SizedBox(height: 16,),
           ListView.separated(
+              primary: false,
+              physics: const NeverScrollableScrollPhysics(),
               itemBuilder: (context, index) {
                 final post = friendPosts[index];
                 return FriendPostTile(post: post);
